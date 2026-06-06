@@ -6,6 +6,10 @@ ARG TARGETARCH
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Europe/Budapest
 
+RUN apt-get update && apt-get install -y \
+    systemd-standalone-sysusers curl \
+    ca-certificates  && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /
 
 # -------- Architecture mapping --------
